@@ -1,5 +1,8 @@
 package dev.kalwantspizza.perfectprocessing;
 
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllCreativeModeTabs;
+import com.simibubi.create.AllItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -95,8 +98,14 @@ public class perfectprocessing
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        //if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-        //    event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey()) {
+            event.accept(AllItems.CHROMATIC_COMPOUND);
+            event.accept(AllItems.SHADOW_STEEL);
+            event.accept(AllItems.REFINED_RADIANCE);
+            event.accept(AllBlocks.SHADOW_STEEL_CASING);
+            event.accept(AllBlocks.REFINED_RADIANCE_CASING);
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
